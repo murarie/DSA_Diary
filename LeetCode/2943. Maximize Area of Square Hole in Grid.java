@@ -67,3 +67,24 @@ All values in vBars are distinct. */
 
 //solution
 
+class Solution {
+    public int maximizeSquare(int bars[])
+    {
+
+        Arrays.sort(bars);
+
+        int count = 2, res = 2;
+
+        for(int i = 1; i<bars.length; i++)
+        {
+            count = (bars[i-1] + 1 == bars[i]) ? count + 1: 2;
+            res = Math.max(count, res);
+        }
+        return res;
+    }
+    public int maximizeSquareHoleArea(int n, int m, int[] hBars, int[] vBars) {
+        
+        int gap = Math.min(maximizeSquare(hBars), maximizeSquare(vBars));
+        return gap * gap;
+    }
+}
