@@ -52,3 +52,46 @@ Constraints:
 
 // solution
 
+class Solution {
+    public boolean check(List<Integer> arr){
+        if(arr.size() == 1) return true; 
+
+        for(int i = 1; i < arr.size(); i++){
+            if(arr.get(i - 1) > arr.get(i)) return false; 
+        }
+        return true;
+    }
+
+    public int minimumPairRemoval(int[] nums) {
+        List<Integer> arr = new ArrayList<>();
+        for(int n : nums){
+            arr.add(n); 
+        }
+
+        if(check(arr)) return 0; 
+
+        int count = 0;
+
+        while(true){
+            int sum = Integer.MAX_VALUE;
+            int ind = -1;
+
+            for(int i = 1; i < arr.size(); i++){
+                int temp = arr.get(i - 1) + arr.get(i);
+                if(temp < sum){
+                    sum = temp;
+                    ind = i - 1;
+                }
+            }
+
+            arr.remove(ind + 1);
+            arr.remove(ind);
+
+            arr.add(ind, sum);
+            count++;
+
+            if(check(arr)) break; 
+        }
+        return count;
+    }
+}
