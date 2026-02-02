@@ -43,3 +43,18 @@ Constraints:
 
 // Solution
 
+class Solution {
+    public int minimumCost(int[] nums) {
+        int n = nums.length;
+
+        int minLeft = nums[1];
+        int bestPair = Integer.MAX_VALUE;
+
+        for (int y = 2; y < n; y++) {
+            bestPair = Math.min(bestPair, minLeft + nums[y]);
+            minLeft = Math.min(minLeft, nums[y]);
+        }
+
+        return nums[0] + bestPair;
+    }
+}
