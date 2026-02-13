@@ -53,3 +53,28 @@ s consists of lowercase English letters. */
 
 // Solution
 
+class Solution {
+    public int longestBalanced(String s) {
+        int n = s.length();
+        int res =0;
+        int [] freq = new int[26];
+
+        for(int i=0; i<n; i++){
+            Arrays.fill(freq,0);
+            int maxF =0, unique =0;
+            for(int j =i; j<n; j++){
+                int c = s.charAt(j) -'a';
+                freq[c]++;
+                if(freq[c]==1){
+                    unique++;
+                }
+                maxF = Math.max(maxF, freq[c]);
+
+                if(maxF* unique == j-i+1){
+                    res = Math.max(res, j-i+1);
+                }
+            }
+        }
+        return res;
+    }
+}
