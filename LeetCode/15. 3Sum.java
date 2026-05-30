@@ -71,3 +71,8 @@ class Solution {
 
     }
 }
+
+// solution 2
+
+
+
