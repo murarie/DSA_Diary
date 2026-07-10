@@ -1,6 +1,5 @@
 /*
 3532. Path Existence Queries in a Graph I
-Solved
 Medium
 Topics
 premium lock icon
