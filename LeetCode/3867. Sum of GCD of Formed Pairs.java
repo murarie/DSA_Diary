@@ -68,7 +68,9 @@ Constraints:
 1 <= n == nums.length <= 105
 1 <= nums[i] <= 10​​​​​​​9 */
 
-// class Solution {
+// Solution
+
+class Solution {
     private int gcd(int a, int b) {
         while (b != 0) {
             int t = a % b;
